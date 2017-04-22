@@ -1,0 +1,46 @@
+{
+  "name": "icaspar/wp-hub-plugin",
+  "description": "Hub Plugin",
+  "type": "project",
+  "keywords": [
+    "wordpress",
+    "wp",
+    "plugin",
+    "hub"
+  ],
+  "homepage": "https://caspar.green",
+  "license": "GPL-3.0",
+  "authors": [
+    {
+      "name": "Caspar Green",
+      "email": "cg@caspar.green"
+    }
+  ],
+  "require": {
+    "php": ">=5.6"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.0.*",
+    "kint-php/kint": "~1.0",
+    "10up/wp_mock": "~0.1"
+  },
+  "autoload": {
+    "psr-4": {"ICaspar\\WPHub\\": "src/"},
+    "files": [
+    ]
+  },
+  "autoload-dev": {
+    "files": [
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "config": {
+    "vendor-dir": "vendor",
+    "bin-dir": "bin"
+  },
+  "minimum-stability": "dev"
+}
