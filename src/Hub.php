@@ -120,8 +120,7 @@ class Hub {
 
 			$this->social_settings = new SocialMedia();
 
-			$page_excerpts = new Admin\PageExcerpts();
-			add_action( 'init', [$page_excerpts, 'add_excerpt_support_to_pages'] );
+			add_action( 'init', ['ICaspar\WPHub\Admin\PageExcerpts', 'add_excerpt_support_to_pages'] );
 		}
 
 
