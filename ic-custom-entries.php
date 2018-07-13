@@ -25,8 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This file requires WordPress to work properly.' );
 }
 
-if ( ! version_compare( $GLOBALS['wp_version'], '4.9', '>=' )
-     || ! version_compare( phpversion(), '7.2', '>=' ) ) {
+if ( ! version_compare( $GLOBALS['wp_version'], '4.9', '>=' ) ||
+     ! version_compare( phpversion(), '7.2', '>=' ) ) {
 	return;
 }
 

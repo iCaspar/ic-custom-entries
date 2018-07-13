@@ -20,7 +20,7 @@ use ICaspar\WPHub\Widgets\Widgets;
  *
  * @since 1.0.0
  *
- * @package ICaspar\WPHub
+ * @package ICaspar\CustomEntries
  */
 class Main {
 
