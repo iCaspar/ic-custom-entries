@@ -10,7 +10,7 @@
 return [
 	[
 		'slug'       => 'affiliate_link',
-		'title'      => __( 'Organization Website URL', ICASPAR_HUB_TEXT_DOMAIN ),
+		'title'      => __( 'Organization Website URL', 'ic-custom-entries' ),
 		'type'       => 'UrlBox',
 		'post_types' => [ 'njifma_affiliates' ],
 		'meta_key'   => 'njifma_affiliate_url',
@@ -19,7 +19,7 @@ return [
 
 	[
 		'slug'  => 'affiliate_address',
-		'title' => __( 'Organization Address', ICASPAR_HUB_TEXT_DOMAIN ),
+		'title' => __( 'Organization Address', 'ic-custom-entries' ),
 		'type'       => 'TextAreaBox',
 		'post_types' => [ 'njifma_affiliates' ],
 		'meta_key'   => 'njifma_affiliate_address',
@@ -28,7 +28,7 @@ return [
 
 	[
 		'slug' => 'affiliate_phone',
-		'title' => __( 'Organization Phone', ICASPAR_HUB_TEXT_DOMAIN ),
+		'title' => __( 'Organization Phone', 'ic-custom-entries' ),
 		'type'       => 'PhoneBox',
 		'post_types' => [ 'njifma_affiliates' ],
 		'meta_key'   => 'njifma_affiliate_phone',
@@ -37,7 +37,7 @@ return [
 
 	[
 		'slug' => 'affiliate_fax',
-		'title' => __( 'Organization Fax', ICASPAR_HUB_TEXT_DOMAIN ),
+		'title' => __( 'Organization Fax', 'ic-custom-entries' ),
 		'type'       => 'PhoneBox',
 		'post_types' => [ 'njifma_affiliates' ],
 		'meta_key'   => 'njifma_affiliate_fax',
@@ -46,7 +46,7 @@ return [
 
 	[
 		'slug' => 'affiliate_contact',
-		'title' => __( 'Organization Contact Name', ICASPAR_HUB_TEXT_DOMAIN ),
+		'title' => __( 'Organization Contact Name', 'ic-custom-entries' ),
 		'type'       => 'TextBox',
 		'post_types' => [ 'njifma_affiliates' ],
 		'meta_key'   => 'njifma_affiliate_contact',
@@ -55,7 +55,7 @@ return [
 
 	[
 		'slug' => 'affiliate_email',
-		'title' => __( 'Organization Contact Email', ICASPAR_HUB_TEXT_DOMAIN ),
+		'title' => __( 'Organization Contact Email', 'ic-custom-entries' ),
 		'type'       => 'EmailBox',
 		'post_types' => [ 'njifma_affiliates' ],
 		'meta_key'   => 'njifma_affiliate_contact_email',

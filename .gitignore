@@ -1,9 +1,8 @@
 *.log
 
-# PhpStorm, CodeKit #
+# PhpStorm #
 ############
 /.idea/
-config.codekit3
 
 # Gulp/Grunt and Node #
 #################

@@ -34,15 +34,15 @@ class SocialMediaLinks extends \WP_Widget {
 	public function __construct() {
 		$widget_options = array(
 			'classname'   => 'social-media-links-widget',
-			'description' => __( 'Displays Linked Social Media Icons', ICASPAR_HUB_TEXT_DOMAIN )
+			'description' => __( 'Displays Linked Social Media Icons', 'ic-custom-entries' )
 		);
 
 		$this->defaults = array(
-			'title'              => __( 'Social Media', ICASPAR_HUB_TEXT_DOMAIN ),
+			'title'              => __( 'Social Media', 'ic-custom-entries' ),
 			'open_in_new_window' => false,
 		);
 
-		parent::__construct( 'social-media-links-widget', __( 'Social Media Icons Widget', ICASPAR_HUB_TEXT_DOMAIN ), $widget_options );
+		parent::__construct( 'social-media-links-widget', __( 'Social Media Icons Widget', 'ic-custom-entries' ), $widget_options );
 	}
 
 	/**

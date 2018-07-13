@@ -9,15 +9,15 @@ class CustomNews extends \WP_Widget {
 	public function __construct() {
 		$widget_options = array(
 			'classname'   => 'custom-news-widget',
-			'description' => __( 'Custom recent news with clickable excerpts', ICASPAR_HUB_TEXT_DOMAIN )
+			'description' => __( 'Custom recent news with clickable excerpts', 'ic-custom-entries' )
 		);
 
 		$this->defaults = array(
-			'title'  => __( 'News', ICASPAR_HUB_TEXT_DOMAIN ),
+			'title'  => __( 'News', 'ic-custom-entries' ),
 			'number' => 4,
 		);
 
-		parent::__construct( 'custom-news-widget', __( 'Custom News Widget', ICASPAR_HUB_TEXT_DOMAIN ), $widget_options );
+		parent::__construct( 'custom-news-widget', __( 'Custom News Widget', 'ic-custom-entries' ), $widget_options );
 	}
 
 	/**

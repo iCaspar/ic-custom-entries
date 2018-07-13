@@ -23,22 +23,22 @@ class SponsorPanels extends \WP_Widget {
 	public function __construct() {
 		$widget_options = array(
 			'classname'   => 'sponsor-panels-widget',
-			'description' => __( 'Display Sponsors', ICASPAR_HUB_TEXT_DOMAIN )
+			'description' => __( 'Display Sponsors', 'ic-custom-entries' )
 		);
 
 		$this->defaults = array(
-			'title'         => __( 'Sponsors', ICASPAR_HUB_TEXT_DOMAIN ),
+			'title'         => __( 'Sponsors', 'ic-custom-entries' ),
 			'sponsor_level' => 'gold',
 			'number'        => 2,
 		);
 
 		$this->levels = [
-			'gold'   => __( 'Gold', ICASPAR_HUB_TEXT_DOMAIN ),
-			'silver' => __( 'Silver', ICASPAR_HUB_TEXT_DOMAIN ),
-			'bronze' => __( 'Bronze', ICASPAR_HUB_TEXT_DOMAIN ),
+			'gold'   => __( 'Gold', 'ic-custom-entries' ),
+			'silver' => __( 'Silver', 'ic-custom-entries' ),
+			'bronze' => __( 'Bronze', 'ic-custom-entries' ),
 		];
 
-		parent::__construct( 'sponsor-panels-widget', __( 'Sponsor Panels Widget', ICASPAR_HUB_TEXT_DOMAIN ), $widget_options );
+		parent::__construct( 'sponsor-panels-widget', __( 'Sponsor Panels Widget', 'ic-custom-entries' ), $widget_options );
 	}
 
 	/**

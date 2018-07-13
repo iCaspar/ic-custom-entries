@@ -12,8 +12,8 @@ return [
 	'project-category' => [
 		'post_type'           => 'project',
 		'taxonomy_nice_names' => [
-			'singular' => _x( 'Project Category', 'singular taxonomy name', ICASPAR_HUB_TEXT_DOMAIN ),
-			'plural'   => _x( 'Project Categories', 'plural taxonomy name', ICASPAR_HUB_TEXT_DOMAIN ),
+			'singular' => _x( 'Project Category', 'singular taxonomy name', 'ic-custom-entries' ),
+			'plural'   => _x( 'Project Categories', 'plural taxonomy name', 'ic-custom-entries' ),
 		],
 		'rewrite'             => [
 			'slug'         => 'project-category',
@@ -30,8 +30,8 @@ return [
 	'project-tag' => [
 		'post_type'           => 'project',
 		'taxonomy_nice_names' => [
-			'singular' => _x( 'Project Tag', 'singular taxonomy name', ICASPAR_HUB_TEXT_DOMAIN ),
-			'plural'   => _x( 'Project Tags', 'plural taxonomy name', ICASPAR_HUB_TEXT_DOMAIN ),
+			'singular' => _x( 'Project Tag', 'singular taxonomy name', 'ic-custom-entries' ),
+			'plural'   => _x( 'Project Tags', 'plural taxonomy name', 'ic-custom-entries' ),
 		],
 		'rewrite'             => [
 			'slug' => 'project-tag',

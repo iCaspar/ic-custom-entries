@@ -86,18 +86,18 @@ class Taxonomies {
 		return [
 			'name'                       => $plural,
 			'singular_name'              => $singular,
-			'all_items'                  => sprintf( '%s %s', __( 'All', ICASPAR_HUB_TEXT_DOMAIN ), $plural ),
-			'edit_item'                  => sprintf( '%s %s', __( 'Edit', ICASPAR_HUB_TEXT_DOMAIN ), $singular ),
-			'view_item'                  => sprintf( '%s %s', __( 'View', ICASPAR_HUB_TEXT_DOMAIN ), $singular ),
-			'update_item'                => sprintf( '%s %s', __( 'Update', ICASPAR_HUB_TEXT_DOMAIN ), $singular ),
-			'add_new_item'               => sprintf( '%s %s', __( 'Add New', ICASPAR_HUB_TEXT_DOMAIN ), $singular ),
-			'new_item_name'              => sprintf( '%s %s', __( 'New Name for', ICASPAR_HUB_TEXT_DOMAIN ), $singular ),
-			'search_items'               => sprintf( '%s %s', __( 'Search', ICASPAR_HUB_TEXT_DOMAIN ), $plural ),
+			'all_items'                  => sprintf( '%s %s', __( 'All', 'ic-custom-entries' ), $plural ),
+			'edit_item'                  => sprintf( '%s %s', __( 'Edit', 'ic-custom-entries' ), $singular ),
+			'view_item'                  => sprintf( '%s %s', __( 'View', 'ic-custom-entries' ), $singular ),
+			'update_item'                => sprintf( '%s %s', __( 'Update', 'ic-custom-entries' ), $singular ),
+			'add_new_item'               => sprintf( '%s %s', __( 'Add New', 'ic-custom-entries' ), $singular ),
+			'new_item_name'              => sprintf( '%s %s', __( 'New Name for', 'ic-custom-entries' ), $singular ),
+			'search_items'               => sprintf( '%s %s', __( 'Search', 'ic-custom-entries' ), $plural ),
 			'popular_items'              => sprintf( '%s %s', __( 'Popular' ), $plural ),
-			'separate_items_with_commas' => sprintf( '%s %s %s', __( 'Separate', ICASPAR_HUB_TEXT_DOMAIN ), $plural, __( 'with commas', ICASPAR_HUB_TEXT_DOMAIN ) ),
-			'add_or_remove_items'        => sprintf( '%s %s', __( 'Add or remove', ICASPAR_HUB_TEXT_DOMAIN ), $plural ),
-			'choose_from_most_used'      => sprintf( '%s %s', __( 'Choose from most used', ICASPAR_HUB_TEXT_DOMAIN ), $plural ),
-			'not_found'                  => sprintf( '%s $s', $singular, _x( 'not found.', 'taxonomy term not found', ICASPAR_HUB_TEXT_DOMAIN ) )
+			'separate_items_with_commas' => sprintf( '%s %s %s', __( 'Separate', 'ic-custom-entries' ), $plural, __( 'with commas', 'ic-custom-entries' ) ),
+			'add_or_remove_items'        => sprintf( '%s %s', __( 'Add or remove', 'ic-custom-entries' ), $plural ),
+			'choose_from_most_used'      => sprintf( '%s %s', __( 'Choose from most used', 'ic-custom-entries' ), $plural ),
+			'not_found'                  => sprintf( '%s $s', $singular, _x( 'not found.', 'taxonomy term not found', 'ic-custom-entries' ) )
 		];
 	}
 

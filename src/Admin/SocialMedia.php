@@ -50,7 +50,7 @@ class SocialMedia {
 
 		add_settings_field(
 			'dcllc-social-media[facebook]',
-			__( 'Facebook URL', ICASPAR_HUB_TEXT_DOMAIN ),
+			__( 'Facebook URL', 'ic-custom-entries' ),
 			[ $this, 'renderSocialMediaField' ],
 			'general',
 			'default',
@@ -62,7 +62,7 @@ class SocialMedia {
 
 		add_settings_field(
 			'dcllc-social-media[twitter]',
-			__( 'Twitter URL', ICASPAR_HUB_TEXT_DOMAIN ),
+			__( 'Twitter URL', 'ic-custom-entries' ),
 			[ $this, 'renderSocialMediaField' ],
 			'general',
 			'default',
@@ -74,7 +74,7 @@ class SocialMedia {
 
 		add_settings_field(
 			'dcllc-social-media[linkedin]',
-			__( 'LinkedIn URL', ICASPAR_HUB_TEXT_DOMAIN ),
+			__( 'LinkedIn URL', 'ic-custom-entries' ),
 			[ $this, 'renderSocialMediaField' ],
 			'general',
 			'default',

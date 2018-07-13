@@ -1,12 +1,13 @@
 {
-  "name": "icaspar/wp-hub-plugin",
-  "description": "Hub Plugin",
+  "name": "icaspar/ic-custom-entries",
+  "description": "IC Custom Entries -- Post Types, Taxonomies and Related Widgets",
   "type": "project",
   "keywords": [
     "wordpress",
     "wp",
     "plugin",
-    "hub"
+    "custom post types",
+    "taxonomies"
   ],
   "homepage": "https://caspar.green",
   "license": "GPL-3.0",
@@ -17,17 +18,29 @@
     }
   ],
   "require": {
-    "php": ">=7.1"
+    "php": ">=7.2"
   },
-  "require-dev": {},
+  "require-dev": {
+    "brain/monkey": "^2.2",
+    "composer/installers": "^1.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+    "phpunit/phpunit": "~6.5",
+    "roave/security-advisories": "dev-master",
+    "sirbrillig/phpcs-variable-analysis": "^2.0",
+    "squizlabs/php_codesniffer": "^3.2",
+    "wimg/php-compatibility": "^8.0",
+    "wp-coding-standards/wpcs": "^0.14.1"
+  },
   "autoload": {
-    "psr-4": {"ICaspar\\WPHub\\": "src/"},
-    "files": [
-    ]
+    "psr-4": {
+      "ICaspar\\CustomEntries\\": "src/"
+    }
   },
   "autoload-dev": {
-    "files": [
-    ]
+    "psr-4": {
+      "ICaspar\\CustomEntries\\Tests\\PhpUnit\\Unit\\": "tests/phpUnit/unit/",
+      "ICaspar\\CustomEntries\\Tests\\PhpUnit\\Integration\\": "tests/phpUnit/integration/"
+    }
   },
   "extra": {
     "branch-alias": {
@@ -35,8 +48,24 @@
     }
   },
   "config": {
-    "vendor-dir": "vendor",
-    "bin-dir": "bin"
+    "sort-order": true
+  },
+  "scripts": {
+    "install-codestandards": [
+      "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+    ],
+    "phpcs-src": "\"vendor/bin/phpcs\" src/",
+    "phpcs-tests": "\"vendor/bin/phpcs\" tests/phpUnit/",
+    "run-phpcs": [
+      "@phpcs-src",
+      "@phpcs-tests"
+    ],
+    "test-unit": "\"vendor/bin/phpunit\" --testsuite unit --color=always",
+    "test-integration": "\"vendor/bin/phpunit\" --testsuite integration --configuration tests/phpUnit/integration/phpunit.xml.dist --color=always",
+    "run-tests": [
+      "@test-unit",
+      "@test-integration"
+    ]
   },
   "minimum-stability": "dev"
 }

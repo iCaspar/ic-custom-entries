@@ -8,9 +8,9 @@
  */
 
 return [
-	'cpts'       => include ICASPAR_HUB_CONFIG_DIR . 'cpts.php',
-	'taxonomies' => include ICASPAR_HUB_CONFIG_DIR . 'taxonomies.php',
-	'metaboxes'  => include ICASPAR_HUB_CONFIG_DIR . 'metaboxes.php',
-	'widgets'    => include ICASPAR_HUB_CONFIG_DIR . 'widgets.php',
-	'scripts'    => include ICASPAR_HUB_CONFIG_DIR . 'scripts.php',
+	'cpts'       => include $config_dir . 'cpts.php',
+	'taxonomies' => include $config_dir . 'taxonomies.php',
+	'metaboxes'  => include $config_dir . 'metaboxes.php',
+	'widgets'    => include $config_dir . 'widgets.php',
+	'scripts'    => include $config_dir . 'scripts.php',
 ];
