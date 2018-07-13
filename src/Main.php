@@ -7,7 +7,9 @@
 
 namespace ICaspar\CustomEntries;
 
+use ICaspar\CustomEntries\PostTypes\PostTypeFactory;
 use ICaspar\CustomEntries\Utilities\ActivationActions;
+use ICaspar\CustomEntries\Utilities\Helpers;
 use ICaspar\WPHub\Admin\SocialMedia;
 use ICaspar\WPHub\Metaboxes\MetaboxController;
 use ICaspar\WPHub\PostTypes\PostTypes;
@@ -154,6 +156,7 @@ class Main {
 	 */
 	public function init(): void {
 		$this->set_activation_status_actions();
+		$this->init_post_types();
 	}
 
 	/**
@@ -169,6 +172,40 @@ class Main {
 		if ( is_admin() ) {
 			add_action( 'admin_init', [ ActivationActions::class, 'maybe_flush_rewrites' ] );
 		}
+	}
+
+	/**
+	 * Initialize custom post types.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	protected function init_post_types(): void {
+		if ( ! Helpers::isSettingPresentAsArray( $this->config, 'post-types' ) ) {
+			return;
+		}
+
+		/**
+		 * Filter the Custom Post Type Configuration.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param array $config {
+		 *      Associative Array of post types to register.
+		 *
+		 *      Use the post type slugs as array keys.
+		 *
+		 *      @type array  $post_type_names An array of label names for 'singular', 'plural' and (optional) 'name'.
+		 *      @type array  $supports An array of post type supports. @see https://codex.wordpress.org/Function_Reference/post_type_supports
+		 *      @type string $slug The post type slug.
+		 *      @type string $title_placeholder Title placeholder text.
+		 *      @type array  $args Post type arguments. @see https://codex.wordpress.org/Function_Reference/register_post_type
+		 * }
+		 */
+		$config  = apply_filters( 'ic_custom_post_types_config', $this->config['post-types'] );
+		$factory = new PostTypeFactory( $config );
+		$factory->make();
 	}
 
 	/**

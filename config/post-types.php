@@ -8,21 +8,17 @@
  */
 
 return [
-	'project'   => [
+	'portfolio'   => [
 		'post_type_names'   => array(
 			'singular' => _x( 'Project', 'singular post type name', 'ic-custom-entries' ),
 			'plural'   => _x( 'Projects', 'plural post type name', 'ic-custom-entries' ),
-			'label' => _x( 'Portfolio', 'post type main mabel', 'ic-custom-entries' ),
+			'name' => _x( 'Portfolio', 'post type main mabel', 'ic-custom-entries' ),
 		),
-		'excluded_supports' => array(
-			'author',
-			'trackbacks',
-			'custom-fields',
-			'comments',
-			'post-formats',
-			'genesis-scripts',
-			'genesis-layouts',
-			'genesis-rel-author',
+		'supports' => array(
+			'title',
+			'editor',
+			'excerpt',
+			'thumbnail',
 		),
 		'slug'              => 'portfolio',
 		'title_placeholder' => __( 'Enter project name here' , 'ic-custom-entries' ),

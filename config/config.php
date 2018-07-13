@@ -8,7 +8,7 @@
  */
 
 return [
-	'cpts'       => include $config_dir . 'cpts.php',
+	'post-types' => include $config_dir . 'post-types.php',
 	'taxonomies' => include $config_dir . 'taxonomies.php',
 	'metaboxes'  => include $config_dir . 'metaboxes.php',
 	'widgets'    => include $config_dir . 'widgets.php',
