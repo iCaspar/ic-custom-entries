@@ -55,13 +55,6 @@ class Main {
 	protected $config = [];
 
 	/**
-	 * Plugin PostTypes object.
-	 *
-	 * @var PostTypes
-	 */
-	protected $post_types;
-
-	/**
 	 * Plugin Taxonomies object.
 	 *
 	 * @var Taxonomies
@@ -193,14 +186,14 @@ class Main {
 		 *
 		 * @param array $config {
 		 *      Associative Array of post types to register.
-		 *
-		 *      Use the post type slugs as array keys.
-		 *
-		 *      @type array  $post_type_names An array of label names for 'singular', 'plural' and (optional) 'name'.
-		 *      @type array  $supports An array of post type supports. @see https://codex.wordpress.org/Function_Reference/post_type_supports
-		 *      @type string $slug The post type slug.
-		 *      @type string $title_placeholder Title placeholder text.
-		 *      @type array  $args Post type arguments. @see https://codex.wordpress.org/Function_Reference/register_post_type
+		 *      @type array $post_type_name {
+		 *          Array containing post type args for post types to be registered.
+		 *          @type array  $post_type_names An array of label names for 'singular', 'plural' and (optional) 'name'.
+		 *          @type array  $supports An array of post type supports. @see https://codex.wordpress.org/Function_Reference/post_type_supports
+		 *          @type string $slug The post type slug.
+		 *          @type string $title_placeholder (optional) Post Title placeholder text.
+		 *          @type array  $args Post type arguments. @see https://codex.wordpress.org/Function_Reference/register_post_type
+		 *      }
 		 * }
 		 */
 		$config  = apply_filters( 'ic_custom_post_types_config', $this->config['post-types'] );
@@ -216,12 +209,6 @@ class Main {
 	 * @return void
 	 */
 //	private function setup() {
-//		if ( array_key_exists( 'cpts', $this->config ) && ! empty( $this->config['cpts'] ) ) {
-//			$this->post_types = new PostTypes( $this->config['cpts'] );
-//			add_action( 'init', [ $this->post_types, 'register_post_types' ] );
-//			add_filter( 'enter_title_here', [ $this->post_types, 'change_title_placeholder' ] );
-//		}
-//
 //		if ( array_key_exists( 'taxonomies', $this->config ) && ! empty( $this->config['taxonomies'] ) ) {
 //			$this->taxonomies = new Taxonomies( $this->config['taxonomies'] );
 //			add_action( 'init', [ $this->taxonomies, 'register_taxonomies' ] );
