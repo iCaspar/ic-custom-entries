@@ -7,14 +7,11 @@
 
 namespace ICaspar\CustomEntries;
 
-use ICaspar\CustomEntries\PostTypes\PostTypeFactory;
+use ICaspar\CustomEntries\Factories\CustomEntryFactory;
 use ICaspar\CustomEntries\Utilities\ActivationActions;
 use ICaspar\CustomEntries\Utilities\Helpers;
 use ICaspar\WPHub\Admin\SocialMedia;
 use ICaspar\WPHub\Metaboxes\MetaboxController;
-use ICaspar\WPHub\PostTypes\PostTypes;
-use ICaspar\WPHub\Taxonomies\Taxonomies;
-use ICaspar\WPHub\Utils\Scripts;
 use ICaspar\WPHub\Widgets\Widgets;
 
 /**
@@ -53,13 +50,6 @@ class Main {
 	 * @since 1.0.0
 	 */
 	protected $config = [];
-
-	/**
-	 * Plugin Taxonomies object.
-	 *
-	 * @var Taxonomies
-	 */
-	protected $taxonomies;
 
 	/**
 	 * Plugin Metabox Controller object.
@@ -168,7 +158,7 @@ class Main {
 	}
 
 	/**
-	 * Initialize custom post types.
+	 * Initialize post types.
 	 *
 	 * @since 1.0.0
 	 *
@@ -180,7 +170,7 @@ class Main {
 		}
 
 		/**
-		 * Filter the Custom Post Type Configuration.
+		 * Filter the Post Types Configuration.
 		 *
 		 * @since 1.0.0
 		 *
@@ -196,9 +186,44 @@ class Main {
 		 *      }
 		 * }
 		 */
-		$config  = apply_filters( 'ic_custom_post_types_config', $this->config['post-types'] );
-		$factory = new PostTypeFactory( $config );
-		$factory->make();
+		$config  = apply_filters( 'ic_post_types_config', $this->config['post-types'] );
+		$factory = new CustomEntryFactory();
+		$factory->make( $config );
+	}
+
+	/**
+	 * Initialize taxonomies.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	protected function init_taxonomies(): void {
+		if ( ! Helpers::isSettingPresentAsArray( $this->config, 'taxonomies' ) ) {
+			return;
+		}
+
+		/**
+		 * Filter the Taxonomies Configuration.
+		 *
+		 * @since 1.0.0
+		 *
+		 * @param array $config {
+		 *      Associative Array of taxonomies to register.
+		 *      @type array $taxonomy_name {
+		 *          Array containing taxonomy args for taxonomies to be registered.
+		 *          @type string|array $post_type Slug (or an array of slug strings) of the post type(s) to which the taxonomy is related.
+		 *          @type string $slug The unique slug for the taxonomy.
+		 *          @type array  $taxonomy_names An array of label names for 'singular', 'plural'.
+		 *          @type array  $rewrite (optional) An array of rewrites @see https://codex.wordpress.org/Function_Reference/register_taxonomy
+		 *          @type array  $args Taxonomy arguments. @see https://codex.wordpress.org/Function_Reference/register_taxonomy
+		 *          @type string $initial_term (optional) Name of an initial term to create within the taxonomy.
+		 *      }
+		 * }
+		 */
+		$config  = apply_filters( 'ic_taxonomies_config', $this->config['taxonomies'] );
+		$factory = new CustomEntryFactory();
+		$factory->make( $config, 'taxonomy' );
 	}
 
 	/**
@@ -209,11 +234,6 @@ class Main {
 	 * @return void
 	 */
 //	private function setup() {
-//		if ( array_key_exists( 'taxonomies', $this->config ) && ! empty( $this->config['taxonomies'] ) ) {
-//			$this->taxonomies = new Taxonomies( $this->config['taxonomies'] );
-//			add_action( 'init', [ $this->taxonomies, 'register_taxonomies' ] );
-//		}
-//
 //		if ( array_key_exists( 'widgets', $this->config ) && ! empty( $this->config['widgets'] ) ) {
 //			$this->widgets = new Widgets( $this->config['widgets'] );
 //			add_action( 'widgets_init', [ $this->widgets, 'register_widgets' ] );
