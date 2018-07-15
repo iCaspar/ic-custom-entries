@@ -29,19 +29,15 @@ return [
 	],
 
 	'project-tag' => [
-		'post_type'           => 'project',
-		//'slug'                => 'project-tag',
+		'post_type'           => 'portfolio',
+		'slug'                => 'project-tag',
 		'taxonomy_names' => [
 			'singular' => _x( 'Project Tag', 'singular taxonomy name', 'ic-custom-entries' ),
 			'plural'   => _x( 'Project Tags', 'plural taxonomy name', 'ic-custom-entries' ),
-		],
-		'rewrite'             => [
-			'slug' => 'project-tag',
 		],
 		'args'                => [
 			'show_in_nav_menus' => true,
 			'show_admin_column' => true,
 		],
 	],
-
 ];

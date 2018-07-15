@@ -31,29 +31,20 @@ return [
 			'has_archive'       => true,
 		),
 	],
-/*
-	'njifma_fm_spotlight' => [
+
+	'spotlight' => [
 		'post_type_names'   => array(
-			'singular' => _x( 'FM Spotlight', 'singular post type name', 'ic-custom-entries' ),
-			'plural'   => _x( 'FM Spotlights', 'plural post type name', 'ic-custom-entries' ),
+			'singular' => _x( 'Spotlight', 'singular post type name', 'ic-custom-entries' ),
+			'plural'   => _x( 'Spotlights', 'plural post type name', 'ic-custom-entries' ),
 		),
-		'excluded_supports' => array(
-			'trackbacks',
-			'custom-fields',
-			'post-formats',
-			'genesis-seo',
-			'genesis-scripts',
-			'genesis-layouts',
-			'genesis-rel-author',
-		),
-		'slug'              => 'fm-spotlight',
+		'slug'              => 'spotlight',
 		'args'              => array(
 			'public'            => true,
-			'description'       => _x( 'FM Spotlight', 'custom post type description', 'ic-custom-entries' ),
-			'menu_position'     => 20,
+			'description'       => _x( 'Spotlight', 'custom post type description', 'ic-custom-entries' ),
+			'menu_position'     => 21,
 			'menu_icon'         => 'dashicons-megaphone',
 			'show_in_nav_menus' => true,
 			'has_archive'       => true,
 		),
-	], */
+	],
 ];
