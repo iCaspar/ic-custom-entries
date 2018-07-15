@@ -21,13 +21,16 @@
 
 namespace ICaspar\CustomEntries;
 
+use \Exception;
+use \WP_Error;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'This file requires WordPress to work properly.' );
 }
 
 if ( ! version_compare( $GLOBALS['wp_version'], '4.9', '>=' ) ||
      ! version_compare( phpversion(), '7.2', '>=' ) ) {
-	return;
+	return new WP_Error( 'icce1', 'iC Custom Entries requires at least WP 4.9 and PHP 7.2.' );
 }
 
 add_action( 'plugins_loaded', __NAMESPACE__ . '\launch' );
@@ -36,11 +39,18 @@ add_action( 'plugins_loaded', __NAMESPACE__ . '\launch' );
  *
  * @since 1.0.0
  *
- * @return void
+ * @return bool|WP_Error True on successful launch; WP_Error if not.
  */
 function launch() {
 	require_once( __DIR__ . '/vendor/autoload.php' );
 
 	$custom_entries = new Main( __FILE__ );
-	$custom_entries->init();
+
+	try {
+		$custom_entries->init();
+	} catch ( Exception $e ) {
+		return new WP_Error( 'icce2', $e->getMessage() );
+	}
+
+	return true;
 }
