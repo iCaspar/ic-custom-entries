@@ -75,8 +75,6 @@ class Main {
 	/**
 	 * Main constructor.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param string $plugin_file The plugin's root file.
 	 */
 	public function __construct( string $plugin_file ) {
@@ -139,6 +137,8 @@ class Main {
 	 */
 	public function init(): void {
 		$this->set_activation_status_actions();
+		$this->init_post_types();
+		$this->init_taxonomies();
 	}
 
 	/**
