@@ -27,8 +27,20 @@ class Helpers {
 	 * @static
 	 * @return bool
 	 */
-	public static function isSettingPresentAsArray( array $config, $setting ) {
+	public static function isSettingPresentAsArray( array $config, $setting ): bool {
 		return isset( $config[ $setting ] ) && is_array( $config[ $setting ] );
+	}
+
+	/**
+	 * Determine whether plugin is in development mode
+	 *
+	 * @since 1.0.0
+	 *
+	 * @static
+	 * @return bool
+	 */
+	public static function is_development_mode(): bool {
+		return defined( 'SCRIPT_DEBUG') && SCRIPT_DEBUG == true;
 	}
 
 }
