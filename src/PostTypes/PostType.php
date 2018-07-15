@@ -21,7 +21,7 @@ use ICaspar\CustomEntries\Utilities\Helpers;
 class PostType {
 
 	/**
-	 * @var array Custom post types data.
+	 * @var array Post types data.
 	 *
 	 * @since 1.0.0
 	 */
@@ -53,7 +53,7 @@ class PostType {
 	/**
 	 * Callback to register the post type.
 	 *
-	 * @hooked init.
+	 * @hooked init
 	 *
 	 * @since 1.0.0
 	 *
@@ -73,9 +73,9 @@ class PostType {
 	/**
 	 * Insure a clean, unique post type name.
 	 *
-	 * @param string $name Post type name.
+	 * @param string $name Post type name (slug).
 	 *
-	 * @return string Sanitized post type name or empty string if name is a duplicate.
+	 * @return string Sanitized post type name or empty string if the name is a duplicate.
 	 */
 	protected function sanitize_post_type_name( string $name ): string {
 		$name = sanitize_key( $name );

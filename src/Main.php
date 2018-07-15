@@ -139,7 +139,6 @@ class Main {
 	 */
 	public function init(): void {
 		$this->set_activation_status_actions();
-		$this->init_post_types();
 	}
 
 	/**
@@ -174,17 +173,7 @@ class Main {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param array $config {
-		 *      Associative Array of post types to register.
-		 *      @type array $post_type_name {
-		 *          Array containing post type args for post types to be registered.
-		 *          @type array  $post_type_names An array of label names for 'singular', 'plural' and (optional) 'name'.
-		 *          @type array  $supports An array of post type supports. @see https://codex.wordpress.org/Function_Reference/post_type_supports
-		 *          @type string $slug The post type slug.
-		 *          @type string $title_placeholder (optional) Post Title placeholder text.
-		 *          @type array  $args Post type arguments. @see https://codex.wordpress.org/Function_Reference/register_post_type
-		 *      }
-		 * }
+		 * @param array $config An associative array of post type names and configurations to register.
 		 */
 		$config  = apply_filters( 'ic_post_types_config', $this->config['post-types'] );
 		$factory = new CustomEntryFactory();
@@ -208,18 +197,7 @@ class Main {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param array $config {
-		 *      Associative Array of taxonomies to register.
-		 *      @type array $taxonomy_name {
-		 *          Array containing taxonomy args for taxonomies to be registered.
-		 *          @type string|array $post_type Slug (or an array of slug strings) of the post type(s) to which the taxonomy is related.
-		 *          @type string $slug The unique slug for the taxonomy.
-		 *          @type array  $taxonomy_names An array of label names for 'singular', 'plural'.
-		 *          @type array  $rewrite (optional) An array of rewrites @see https://codex.wordpress.org/Function_Reference/register_taxonomy
-		 *          @type array  $args Taxonomy arguments. @see https://codex.wordpress.org/Function_Reference/register_taxonomy
-		 *          @type string $initial_term (optional) Name of an initial term to create within the taxonomy.
-		 *      }
-		 * }
+		 * @param array $config An associative array of taxonomy names and configurations to register.
 		 */
 		$config  = apply_filters( 'ic_taxonomies_config', $this->config['taxonomies'] );
 		$factory = new CustomEntryFactory();
