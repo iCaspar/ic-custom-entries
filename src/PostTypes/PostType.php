@@ -30,8 +30,6 @@ class PostType {
 	/**
 	 * Post_Types constructor.
 	 *
-	 * @since 1.0.0
-	 *
 	 * @param array $config Post type configuration data.
 	 */
 	public function __construct( array $config ) {
@@ -60,14 +58,33 @@ class PostType {
 	 * @return void
 	 */
 	public function register(): void {
-		$this->config['slug'] = $this->sanitize_post_type_name( $this->config['slug'] );
-
-		if ( ! $this->config['slug'] ) {
+		if ( ! $this->is_valid_config() ) {
 			return;
 		}
 
 		$this->build_post_type_args();
 		register_post_type( $this->config['slug'], $this->config['args'] );
+	}
+
+	/**
+	 * Check that the post type config is valid.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return bool
+	 */
+	protected function is_valid_config(): bool {
+		if ( ! isset( $this->config['slug'] ) ) {
+			return false;
+		}
+
+		$this->config['slug'] = $this->sanitize_post_type_name( $this->config['slug'] );
+
+		if ( ! $this->config['slug'] ) {
+			return false;
+		}
+
+		return true;
 	}
 
 	/**
@@ -90,12 +107,12 @@ class PostType {
 	/**
 	 * Build custom post type arguments array.
 	 *
-	 * @param array $config Post type configuration data.
+	 * @since 1.0.0
 	 *
-	 * @return array
+	 * @return void
 	 */
 
-	private function build_post_type_args() {
+	protected function build_post_type_args(): void {
 		$this->build_labels();
 		$this->build_supports();
 		$this->build_rewrite();
@@ -108,7 +125,7 @@ class PostType {
 	 *
 	 * @return void.
 	 */
-	private function build_labels(): void {
+	protected function build_labels(): void {
 		if ( ! Helpers::isSettingPresentAsArray( $this->config, 'post_type_names' ) ) {
 			return;
 		}
@@ -158,7 +175,7 @@ class PostType {
 	 *
 	 * @return void
 	 */
-	private function build_supports(): void {
+	protected function build_supports(): void {
 		if ( ! Helpers::isSettingPresentAsArray( $this->config, 'supports' ) ) {
 			$this->config['args']['supports'] = array_keys( get_all_post_type_supports( 'post' ) );
 		} else {
@@ -189,7 +206,7 @@ class PostType {
 	public function change_title_placeholder( $title ): string {
 		$screen = get_current_screen();
 
-		if ( $this->config['slug'] != $screen->post_type || ! isset( $this->config['title_placeholder']) ) {
+		if ( $this->config['slug'] != $screen->post_type || ! isset( $this->config['title_placeholder'] ) ) {
 			return $title;
 		}
 
