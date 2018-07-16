@@ -236,11 +236,6 @@ class Main {
 //			add_action( 'widgets_init', [ $this->widgets, 'register_widgets' ] );
 //		}
 //
-//		if ( array_key_exists( 'scripts', $this->config ) && ! empty( $this->config['scripts'] ) ) {
-//			$this->scripts = new Scripts( $this->config['scripts'] );
-//			add_action( 'init', [ $this->scripts, 'register_scripts' ] );
-//		}
-//
 //		if ( is_admin() ) {
 //
 //			if ( array_key_exists( 'metaboxes', $this->config ) && ! empty( $this->config['metaboxes'] ) ) {

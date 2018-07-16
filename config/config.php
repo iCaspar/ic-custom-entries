@@ -13,5 +13,4 @@ return [
 	'tax-images' => include $config_dir . 'tax-images.php',
 	'metaboxes'  => include $config_dir . 'metaboxes.php',
 	'widgets'    => include $config_dir . 'widgets.php',
-	'scripts'    => include $config_dir . 'scripts.php',
 ];
