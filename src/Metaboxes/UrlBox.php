@@ -1,6 +1,23 @@
 <?php
-namespace ICaspar\WPHub\Metaboxes;
+/**
+ * UrlBox class.
+ *
+ * @package ICaspar\CustomEntries\Metaboxes
+ *
+ * @since 1.0.0
+ */
 
+namespace ICaspar\CustomEntries\Metaboxes;
+
+use WP_Post;
+
+/**
+ * Class UrlBox
+ *
+ * @package ICaspar\CustomEntries\Metaboxes
+ *
+ * @since 1.0.0
+ */
 class UrlBox extends MetaboxBase {
 
 	/**
@@ -8,11 +25,11 @@ class UrlBox extends MetaboxBase {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param \WP_Post $post
+	 * @param WP_Post $post
 	 *
 	 * @return void
 	 */
-	public function render_metabox( \WP_Post $post ) {
+	public function render_metabox( WP_Post $post ) {
 		$view   = 'views/urlbox.php';
 		$stored = $this->get_stored_meta( $post, $this->meta_key );
 

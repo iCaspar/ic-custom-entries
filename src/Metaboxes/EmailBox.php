@@ -1,6 +1,23 @@
 <?php
-namespace ICaspar\WPHub\Metaboxes;
+/**
+ * EmailBox class.
+ *
+ * @package ICaspar\CustomEntries\Metaboxes
+ *
+ * @since 1.0.0
+ */
 
+namespace ICaspar\CustomEntries\Metaboxes;
+
+use WP_Post;
+
+/**
+ * Class EmailBox
+ *
+ * @package ICaspar\CustomEntries\Metaboxes
+ *
+ * @since 1.0.0
+ */
 class EmailBox extends MetaboxBase {
 
 	/**
@@ -8,11 +25,11 @@ class EmailBox extends MetaboxBase {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param \WP_Post $post
+	 * @param WP_Post $post
 	 *
 	 * @return void
 	 */
-	public function render_metabox( \WP_Post $post ) {
+	public function render_metabox( WP_Post $post ) {
 		$view   = 'views/emailbox.php';
 		$stored = $this->get_stored_meta( $post, $this->meta_key );
 

@@ -1,12 +1,22 @@
 <?php
-namespace ICaspar\WPHub\Metaboxes;
+/**
+ * PhoneBox class.
+ *
+ * @package ICaspar\CustomEntries\Metaboxes
+ *
+ * @since 1.0.0
+ */
+
+namespace ICaspar\CustomEntries\Metaboxes;
+
+use WP_Post;
 
 /**
  * Class PhoneBox
  *
  * @since 1.0.0
  *
- * @package ICaspar\WPHub\Metaboxes
+ * @package ICaspar\CustomEntries\Metaboxes
  */
 class PhoneBox extends MetaboxBase {
 
@@ -15,11 +25,11 @@ class PhoneBox extends MetaboxBase {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param \WP_Post $post
+	 * @param WP_Post $post
 	 *
 	 * @return void
 	 */
-	public function render_metabox( \WP_Post $post ) {
+	public function render_metabox( WP_Post $post ) {
 		$view   = 'views/phonebox.php';
 		$stored = $this->get_stored_meta( $post, $this->meta_key );
 

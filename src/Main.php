@@ -9,11 +9,11 @@ namespace ICaspar\CustomEntries;
 
 use ICaspar\CustomEntries\Admin\TaxonomyImages;
 use ICaspar\CustomEntries\Factories\CustomEntryFactory;
+use ICaspar\CustomEntries\Factories\MetaboxFactory;
 use ICaspar\CustomEntries\Utilities\ActivationActions;
 use ICaspar\CustomEntries\Utilities\Assets;
 use ICaspar\CustomEntries\Utilities\Helpers;
 use ICaspar\WPHub\Admin\SocialMedia;
-use ICaspar\WPHub\Metaboxes\MetaboxController;
 use ICaspar\WPHub\Widgets\Widgets;
 
 /**
@@ -52,13 +52,6 @@ class Main {
 	 * @since 1.0.0
 	 */
 	protected $config = [];
-
-	/**
-	 * Plugin Metabox Controller object.
-	 *
-	 * @var MetaboxController
-	 */
-	protected $metaboxes;
 
 	/**
 	 * Description.
@@ -142,6 +135,10 @@ class Main {
 		$this->init_post_types();
 		$this->init_taxonomies();
 		$this->init_taxonomy_images();
+
+		if( is_admin() ) {
+			$this->init_metaboxes();
+		}
 	}
 
 	/**
@@ -223,6 +220,16 @@ class Main {
 		$taxonomy_images->init();
 	}
 
+	protected function init_metaboxes(): void {
+		if ( ! Helpers::isSettingPresentAsArray( $this->config, 'metaboxes' ) ) {
+			return;
+		}
+
+		$config = apply_filters( 'ic_metaboxes_config', $this->config['metaboxes']);
+		$factory = new MetaboxFactory();
+		$factory->make( $config );
+	}
+
 	/**
 	 * Setup the plugin.
 	 *
@@ -237,12 +244,6 @@ class Main {
 //		}
 //
 //		if ( is_admin() ) {
-//
-//			if ( array_key_exists( 'metaboxes', $this->config ) && ! empty( $this->config['metaboxes'] ) ) {
-//				$this->metaboxes = new MetaboxController( $this->config['metaboxes'] );
-//				$this->metaboxes->init();
-//			}
-//
 //			$page_excerpts = new Admin\PageExcerpts();
 //			add_action( 'init', [$page_excerpts, 'add_excerpt_support_to_pages'] );
 //		}

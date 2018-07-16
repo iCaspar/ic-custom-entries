@@ -1,12 +1,22 @@
 <?php
-namespace ICaspar\WPHub\Metaboxes;
+/**
+ * MetaboxBase class.
+ *
+ * @package ICaspar\CustomEntries\Metaboxes
+ *
+ * @since 1.0.0
+ */
+
+namespace ICaspar\CustomEntries\Metaboxes;
+
+use WP_Post;
 
 /**
  * Class MetaboxBase
  *
  * @since 1.0.0
  *
- * @package ICaspar\WPHub\Metaboxes
+ * @package ICaspar\CustomEntries\Metaboxes
  */
 abstract class MetaboxBase {
 
@@ -65,6 +75,10 @@ abstract class MetaboxBase {
 	 * @param array $args Metabox configuration.
 	 */
 	public function __construct( array $args ) {
+		if ( ! $this->is_valid_config( $args ) ) {
+			return;
+		}
+
 		$this->slug       = $args['slug'];
 		$this->title      = $args['title'];
 		$this->post_types = $args['post_types'];
@@ -74,6 +88,26 @@ abstract class MetaboxBase {
 		$this->args       = isset( $args['args'] ) ? $args['args'] : null;
 	}
 
+	/**
+	 * Check whether a metabox config array is valid.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $args The metabox configuration
+	 *
+	 * @return bool Whether the configuration array is valid.
+	 */
+	protected function is_valid_config( array $args ): bool {
+		$required = [ 'slug', 'title', 'post_types', 'meta_key' ];
+
+		foreach ( $required as $key ) {
+			if ( ! array_key_exists( $key, $args ) ) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 
 	/**
 	 * Initialize the metabox.
@@ -82,9 +116,9 @@ abstract class MetaboxBase {
 	 *
 	 * @return void
 	 */
-	public function init_metabox() {
-		add_action( 'load-post.php', [ $this, 'register_metabox' ] );
-		add_action( 'load-post-new.php', [ $this, 'register_metabox' ] );
+	public function init() {
+		add_action( 'load-post.php', [ $this, 'register' ] );
+		add_action( 'load-post-new.php', [ $this, 'register' ] );
 	}
 
 	/**
@@ -94,7 +128,7 @@ abstract class MetaboxBase {
 	 *
 	 * @return void
 	 */
-	public function register_metabox() {
+	public function register() {
 		add_action( 'add_meta_boxes', [ $this, 'add_metabox' ] );
 
 		foreach ( $this->post_types as $post_type ) {
@@ -129,7 +163,7 @@ abstract class MetaboxBase {
 	 *
 	 * @param \WP_Post $post The current post object.
 	 */
-	public abstract function render_metabox( \WP_Post $post );
+	public abstract function render_metabox( WP_Post $post );
 
 	/**
 	 * Get the stored meta of a post by its meta key name.

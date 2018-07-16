@@ -1,7 +1,5 @@
 <?php
 /**
- * textareabox.php
- *
  * HTML for a text area custom metabox.
  *
  * @since 1.0.0
