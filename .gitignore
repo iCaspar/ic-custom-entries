@@ -21,4 +21,4 @@ gulp
 
 # Compiled Assets #
 ###################
-/dist/
+*.min*

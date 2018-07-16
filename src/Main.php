@@ -7,8 +7,10 @@
 
 namespace ICaspar\CustomEntries;
 
+use ICaspar\CustomEntries\Admin\TaxonomyImages;
 use ICaspar\CustomEntries\Factories\CustomEntryFactory;
 use ICaspar\CustomEntries\Utilities\ActivationActions;
+use ICaspar\CustomEntries\Utilities\Assets;
 use ICaspar\CustomEntries\Utilities\Helpers;
 use ICaspar\WPHub\Admin\SocialMedia;
 use ICaspar\WPHub\Metaboxes\MetaboxController;
@@ -139,6 +141,7 @@ class Main {
 		$this->set_activation_status_actions();
 		$this->init_post_types();
 		$this->init_taxonomies();
+		$this->init_taxonomy_images();
 	}
 
 	/**
@@ -205,6 +208,22 @@ class Main {
 	}
 
 	/**
+	 * Initialize taxonomy featured images.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return void
+	 */
+	protected function init_taxonomy_images(): void {
+		if ( ! Helpers::isSettingPresentAsArray( $this->config, 'tax-images' ) ) {
+			return;
+		}
+
+		$taxonomy_images = new TaxonomyImages( new Assets( $this->plugin_url, $this->version ), $this->config['tax-images'] );
+		$taxonomy_images->init();
+	}
+
+	/**
 	 * Setup the plugin.
 	 *
 	 * @since 1.0.0
@@ -229,25 +248,10 @@ class Main {
 //				$this->metaboxes->init();
 //			}
 //
-//			$this->social_settings = new SocialMedia();
-//
 //			$page_excerpts = new Admin\PageExcerpts();
 //			add_action( 'init', [$page_excerpts, 'add_excerpt_support_to_pages'] );
 //		}
 
-//		$this->init_hooks();
-//	}
-
-	/**
-	 * Initialize hooks.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return void
-	 */
-//	private function init_hooks() {
-//		add_action( 'init', [ $this, 'image_sizes' ] );
-//	}
 
 	/**
 	 * Add custom image sizes.

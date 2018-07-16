@@ -1,7 +1,5 @@
 <?php
 /**
- * cpts.php
- *
  * Configuration for custom post types.
  *
  * @since 1.0.0
