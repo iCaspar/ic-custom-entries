@@ -35,7 +35,7 @@ class Assets {
 	 */
 	public function __construct( string $plugin_url, string $version ) {
 		$this->assets_url = $plugin_url . 'assets/';
-		$this->version = $version;
+		$this->version    = $version;
 		$this->dev_mode   = Helpers::is_development_mode();
 	}
 
@@ -52,7 +52,7 @@ class Assets {
 	 */
 	public function enqueue_script( string $handle, string $script_name, array $deps = [] ): void {
 		if ( ! $this->dev_mode ) {
-			$asset_name = str_replace( ['.js', '.css'], ['.min.js', '.min.css' ], $script_name );
+			$script_name = str_replace( [ '.js', '.css' ], [ '.min.js', '.min.css' ], $script_name );
 		}
 
 		$handle = sanitize_key( $handle );
