@@ -8,7 +8,4 @@
  */
 
 return [
-//	'ICaspar\WPHub\Widgets\CustomNews',
-//	'ICaspar\WPHub\Widgets\SponsorPanels',
-//	'ICaspar\WPHub\Widgets\SocialMediaLinks',
 ];

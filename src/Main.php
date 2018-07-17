@@ -40,6 +40,10 @@ class Main {
 	protected $version = '';
 
 	/**
+	 * @var string The plugin's base directory.
+	 */
+	protected $plugin_dir = '';
+	/**
 	 * @var string The plugin's base url.
 	 *
 	 * @since 1.0.0
@@ -75,7 +79,8 @@ class Main {
 	public function __construct( string $plugin_file ) {
 		$this->plugin_file = $plugin_file;
 		$this->set_version();
-		$this->set_url();
+		$this->set_plugin_directory();
+		$this->set_plugin_url();
 		$this->set_config();
 	}
 
@@ -92,6 +97,10 @@ class Main {
 		$this->version = $data['version'];
 	}
 
+	protected function set_plugin_directory(): void {
+		$this->plugin_dir = plugin_dir_path( $this->plugin_file );
+	}
+
 	/**
 	 * Set the plugin's base url.
 	 *
@@ -99,7 +108,7 @@ class Main {
 	 *
 	 * @return void
 	 */
-	protected function set_url(): void {
+	protected function set_plugin_url(): void {
 		$plugin_url = plugin_dir_url( $this->plugin_file );
 
 		if ( is_ssl() ) {
