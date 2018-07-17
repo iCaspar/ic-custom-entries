@@ -13,7 +13,6 @@ use ICaspar\CustomEntries\Factories\MetaboxFactory;
 use ICaspar\CustomEntries\Utilities\ActivationActions;
 use ICaspar\CustomEntries\Utilities\Assets;
 use ICaspar\CustomEntries\Utilities\Helpers;
-use ICaspar\WPHub\Admin\SocialMedia;
 use ICaspar\WPHub\Widgets\Widgets;
 
 /**
@@ -63,13 +62,6 @@ class Main {
 	 * @var Widgets
 	 */
 	protected $widgets;
-
-	/**
-	 * Social Media Settings object.
-	 *
-	 * @var SocialMedia
-	 */
-	protected $social_settings;
 
 	/**
 	 * Main constructor.
