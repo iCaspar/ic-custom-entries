@@ -238,35 +238,4 @@ class Main {
 		$factory = new MetaboxFactory();
 		$factory->make( $config );
 	}
-
-	/**
-	 * Setup the plugin.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return void
-	 */
-//	private function setup() {
-//		if ( array_key_exists( 'widgets', $this->config ) && ! empty( $this->config['widgets'] ) ) {
-//			$this->widgets = new Widgets( $this->config['widgets'] );
-//			add_action( 'widgets_init', [ $this->widgets, 'register_widgets' ] );
-//		}
-//
-//		if ( is_admin() ) {
-//			$page_excerpts = new Admin\PageExcerpts();
-//			add_action( 'init', [$page_excerpts, 'add_excerpt_support_to_pages'] );
-//		}
-
-
-	/**
-	 * Add custom image sizes.
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return void
-	 */
-//	public function image_sizes() {
-//		add_image_size( 'custom-news', 325, 325, true );
-//		add_image_size( 'sponsor-panel-logo', 500, 250, true );
-//	}
 }
